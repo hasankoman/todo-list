@@ -1,0 +1,373 @@
+/* Trees Image - Pexels: https://www.pexels.com/photo/photo-of-trees-in-forest-3801030/ */
+@import url("https://fonts.googleapis.com/css?family=Quicksand&display=swap");
+
+html {
+  box-sizing: border-box;
+}
+
+:root {
+  --column-1: #a2622d;
+  --column-2: #1b6161;
+  --column-3: #248224;
+  --column-4: #a22d22;
+}
+/* general css */
+
+body {
+  margin: 0;
+  background: url("./trees.jpg");
+  background-size: cover;
+  background-position: 50% 60%;
+  background-attachment: fixed;
+  color: white;
+  font-family: Quicksand, sans-serif;
+  overflow-y: hidden;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+h1 {
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 5px black;
+}
+
+.main-title {
+  text-align: center;
+  font-size: 3rem;
+}
+/* Scroll Bar */
+
+.custom-scroll {
+  overflow-y: auto;
+  max-height: 40vh;
+}
+
+.custom-scroll::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.4);
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.3);
+  margin-right: 5px;
+}
+
+.custom-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Drag Container */
+
+.drag-container {
+  margin: 20px;
+}
+
+/* on list */
+#backlog-column.over .header {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+#backlog-column.over {
+  background-color: var(--column-1);
+}
+#backlog-list.over {
+  padding-bottom: 34px;
+}
+#inprogress-column.over .header {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+#inprogress-column.over {
+  background-color: var(--column-2);
+}
+#inprogress-list.over {
+  padding-bottom: 34px;
+}
+#complete-column.over .header {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+#complete-column.over {
+  background-color: var(--column-3);
+}
+#complete-list.over {
+  padding-bottom: 34px;
+}
+#onhold-column.over .header {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+#onhold-column.over {
+  background-color: var(--column-4);
+}
+#onhold-list.over {
+  padding-bottom: 34px;
+}
+
+/* Drag List */
+
+.drag-list {
+  display: flex;
+  align-items: start;
+}
+
+.drag-column {
+  height: auto;
+  position: relative;
+  flex: 1;
+  margin: 0 10px;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+/* Drag Column Header */
+
+.header {
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+  padding: 14px 0;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+/* Drag Column:backlog-column */
+
+#backlog-column .header {
+  background-color: var(--column-1);
+  margin-bottom: 20px;
+}
+
+/* Drag Column:inprogress-column */
+
+#inprogress-column .header {
+  background-color: var(--column-2);
+  margin-bottom: 20px;
+}
+
+/* Drag Column:complete-column */
+
+#complete-column .header {
+  background-color: var(--column-3);
+  margin-bottom: 20px;
+}
+
+/* Drag Column:onhold-column */
+
+#onhold-column .header {
+  background-color: var(--column-4);
+  margin-bottom: 20px;
+}
+
+/* Drag Item */
+
+.drag-item {
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.7);
+  margin-right: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  line-height: 1.5rem;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+.drag-item-list p {
+  text-align: center;
+}
+.drag-item:focus-visible {
+  background-color: rgba(0, 0, 0, 0.7);
+
+  outline: none;
+}
+
+/* Drag Item List */
+
+/* .drag-item-list {
+  min-height: 50px;
+} */
+
+/* Buttons */
+
+.button-list {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn {
+  border: none;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  font-size: 16.5px;
+  cursor: pointer;
+  color: white;
+}
+
+.add-btn {
+  background-color: transparent;
+  transition: all 0.3s ease-in;
+}
+.add-btn:hover {
+  color: black;
+  background-color: white;
+}
+
+.save-btn {
+  margin-left: auto;
+}
+
+.save-btn:hover {
+  filter: brightness(90%);
+}
+
+/* Delete Button */
+.trash-btn {
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 100%;
+}
+#backlog-trash-btn.hover i {
+  animation: shake 0.5s;
+}
+
+#inprogress-trash-btn.hover i {
+  animation: shake 0.5s;
+}
+
+#complete-trash-btn.hover i {
+  animation: shake 0.5s;
+}
+
+#onhold-trash-btn.hover i {
+  animation: shake 0.5s;
+}
+@keyframes shake {
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+  20% {
+    transform: translate(-3px, 0px) rotate(1deg);
+  }
+  30% {
+    transform: translate(3px, 2px) rotate(0deg);
+  }
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+  70% {
+    transform: translate(3px, 1px) rotate(-1deg);
+  }
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+  90% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+  100% {
+    transform: translate(1px, -2px) rotate(-1deg);
+  }
+}
+
+/* Add Container */
+
+.new-item-container {
+  padding: 5px 10px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.9);
+  min-height: 100px;
+  display: none;
+
+  position: relative;
+}
+.new-item-container .new-item {
+  width: 100%;
+  min-height: 100px;
+  height: auto;
+  background-color: white;
+  border-radius: 10px;
+  margin: 5px auto;
+  resize: none;
+  color: black;
+  padding: 10px;
+}
+
+.fa-xmark {
+  position: absolute;
+  right: 17px;
+  top: 14px;
+  color: black;
+  cursor: pointer;
+}
+
+#backlog-content .new-item-container .new-item:focus-visible {
+  outline: 3px solid var(--column-1);
+}
+#inprogress-content .new-item-container .new-item:focus-visible {
+  outline: 3px solid var(--column-2);
+}
+#complete-content .new-item-container .new-item:focus-visible {
+  outline: 3px solid var(--column-3);
+}
+#onhold-content .new-item-container .new-item:focus-visible {
+  outline: 3px solid var(--column-4);
+}
+
+/* Backlog Button */
+
+#backlog-btn {
+  background-color: var(--column-1);
+}
+#inprogress-btn {
+  background-color: var(--column-2);
+}
+#complete-btn {
+  background-color: var(--column-3);
+}
+#onhold-btn {
+  background-color: var(--column-4);
+}
+
+.fa-plus {
+  font-size: 15px;
+}
+
+/* Media Query: Laptop */
+@media screen and (max-width: 1800px) {
+  .main-title {
+    font-size: 2rem;
+  }
+}
+
+/* Media Query: Large Smartphone (Vertical) */
+@media screen and (max-width: 600px) {
+  body {
+    overflow-y: auto;
+  }
+
+  .drag-container {
+    margin: 0;
+  }
+
+  .drag-list {
+    display: block;
+  }
+
+  .drag-column {
+    margin: 10px;
+  }
+}

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drag and Drop</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <h1 class="main-title">Kanban Board</h1>
+    <div class="drag-container">
+      <ul class="drag-list">
+        <!-- Backlog Column -->
+        <li class="drag-column" id="backlog-column">
+          <span class="header"><h1>Backlog</h1></span>
+          <!-- Backlog Content -->
+          <div id="backlog-content">
+            <ul
+              class="drag-item-list custom-scroll"
+              id="backlog-list"
+              ondrop="drop(event)"
+              ondragover="allowDrop(event)"
+              ondragenter="dragEnter(this)"
+            >
+              <p>There is no item in this container.</p>
+            </ul>
+            <div class="button-list">
+              <button class="add-btn btn">
+                <i class="fa-solid fa-plus"></i> <span>Add Item</span>
+              </button>
+              <button
+                class="trash-btn btn"
+                ondrop="dropTrash()"
+                ondragenter="dragEnterTrash(this)"
+                ondragover="allowDrop(event)"
+                id="backlog-trash-btn"
+                hidden
+              >
+                <i class="fa-solid fa-trash-can"></i>
+              </button>
+              <button class="save-btn btn" id="backlog-btn" hidden>
+                Save Item
+              </button>
+            </div>
+            <div class="new-item-container" hidden>
+              <i class="fa-solid fa-xmark"></i>
+              <div class="new-item" contenteditable="true"></div>
+            </div>
+          </div>
+        </li>
+        <!-- In Progress Column -->
+        <li class="drag-column" id="inprogress-column">
+          <span class="header"><h1>In Progress</h1></span>
+          <!-- In Progress Content -->
+          <div id="inprogress-content">
+            <ul
+              class="drag-item-list custom-scroll"
+              id="inprogress-list"
+              ondrop="drop(event)"
+              ondragover="allowDrop(event)"
+              ondragenter="dragEnter(this)"
+            >
+              <p>There is no item in this container.</p>
+            </ul>
+            <div class="button-list">
+              <button class="add-btn btn">
+                <i class="fa-solid fa-plus"></i> <span>Add Item</span>
+              </button>
+              <button
+                class="trash-btn btn"
+                ondrop="dropTrash()"
+                ondragenter="dragEnterTrash(this)"
+                ondragover="allowDrop(event)"
+                id="inprogress-trash-btn"
+                hidden
+              >
+                <i class="fa-solid fa-trash-can"></i>
+              </button>
+              <button class="save-btn btn" id="inprogress-btn" hidden>
+                Save Item
+              </button>
+            </div>
+            <div class="new-item-container" hidden>
+              <i class="fa-solid fa-xmark"></i>
+              <div class="new-item" contenteditable="true"></div>
+            </div>
+          </div>
+        </li>
+        <!-- Complete Column -->
+        <li class="drag-column" id="complete-column">
+          <span class="header"><h1>Complete</h1></span>
+          <!-- Complete Content -->
+          <div id="complete-content">
+            <ul
+              class="drag-item-list custom-scroll"
+              id="complete-list"
+              ondrop="drop(event)"
+              ondragover="allowDrop(event)"
+              ondragenter="dragEnter(this)"
+            >
+              <p>There is no item in this container.</p>
+            </ul>
+            <div class="button-list">
+              <button class="add-btn btn">
+                <i class="fa-solid fa-plus"></i> <span>Add Item</span>
+              </button>
+              <button
+                class="trash-btn btn"
+                ondrop="dropTrash()"
+                ondragenter="dragEnterTrash(this)"
+                ondragover="allowDrop(event)"
+                id="complete-trash-btn"
+                hidden
+              >
+                <i class="fa-solid fa-trash-can"></i>
+              </button>
+              <button class="save-btn btn" id="complete-btn" hidden>
+                Save Item
+              </button>
+            </div>
+            <div class="new-item-container" hidden>
+              <i class="fa-solid fa-xmark"></i>
+              <div class="new-item" contenteditable="true"></div>
+            </div>
+          </div>
+        </li>
+        <!-- On Hold Column -->
+        <li class="drag-column" id="onhold-column">
+          <span class="header"><h1>On Hold</h1></span>
+          <!-- On Hold Content -->
+          <div id="onhold-content">
+            <ul
+              class="drag-item-list custom-scroll"
+              id="onhold-list"
+              ondrop="drop(event)"
+              ondragover="allowDrop(event)"
+              ondragenter="dragEnter(this)"
+            >
+              <p>There is no item in this container.</p>
+            </ul>
+            <div class="button-list">
+              <button class="add-btn btn">
+                <i class="fa-solid fa-plus"></i> <span>Add Item</span>
+              </button>
+              <button
+                class="trash-btn btn"
+                ondrop="dropTrash()"
+                ondragenter="dragEnterTrash(this)"
+                ondragover="allowDrop(event)"
+                id="onhold-trash-btn"
+                hidden
+              >
+                <i class="fa-solid fa-trash-can"></i>
+              </button>
+              <button class="save-btn btn" id="onhold-btn" hidden>
+                Save Item
+              </button>
+            </div>
+            <div class="new-item-container" hidden>
+              <i class="fa-solid fa-xmark"></i>
+              <div class="new-item" contenteditable="true"></div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <!-- Script -->
+    <script src="script.js"></script>
+  </body>
+</html>
